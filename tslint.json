@@ -1,11 +1,95 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint-config-airbnb" // from Airbnb JavaScript Style Guide.
+  ],
   "rules": {
-    "array-type": false,
-    "arrow-parens": false,
-    "deprecation": {
-      "severity": "warn"
-    },
+    "max-line-length": [true, {"limit": 200, "ignore-pattern": "^import |^export {(.*?)}"}],
+    "object-literal-shorthand": [true, "never"],
+    /* 配列の型定義を強制しない (false) *?
+    // "array-type": false,
+    /* アロー関数の仮引数にカッコを強制する (true) */
+    // "arrow-parens": false,
+    /* 廃止された API を使用している場合に警告する (true) : 要 --type-check */
+    // "deprecation": {
+    //   "severity": "warn"
+    // },
+    /* import したくないものを指定する (true) */
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],
+//    /* インターフェース名を I から始めない (false) */
+//     "interface-name": false,
+//    /* 1ファイルあたりの最大クラス数を 5 つまでとする (true) */
+//    "max-classes-per-file": false,
+//    /* public・protected・private をメンバ (変数・メソッド) に付与することを強制しない (false) */
+//    "member-access": false,
+//    /* クラスメンバの順序を指定する (true) : public → private・static → instance な順 */
+//    "member-ordering": [
+//      true,
+//      {
+//        "order": [
+//          "static-field",
+//          "instance-field",
+//          "static-method",
+//          "instance-method"
+//        ]
+//      }
+//    ],
+//    /* 空行が2行以上続かないこと */
+//    "no-consecutive-blank-lines": false,
+//    /* console の指定メソッドを使用していないこと (true) : console の全てのメソッドを Ban する */
+//    "no-console": [
+//      true,
+//      "debug",
+//      "info",
+//      "time",
+//      "timeEnd",
+//      "trace"
+//    ],
+//    /* 空のブロックを許容しない */
+//    "no-empty": false,
+//    /**
+//     * String・Number・Boolean と分かる変数の定義時に型定義を書いてもエラーにしない (false)
+//     * : true にすると型定義時にエラー扱いになる・true にする際は typedef の設定と競合しないよう注意
+//     */
+//    "no-inferrable-types": [
+//      true,
+//      "ignore-params"
+//    ],
+//    /* null でないアサーションを許容しない */
+//    "no-non-null-assertion": true,
+//    /*  */
+//    "no-redundant-jsdoc": true,
+//    /* switch 文でフォールスルーを許容しない */
+//    "no-switch-case-fall-through": true,
+//    /**
+//     * 変数を宣言前に使用していないことをチェックしない (false)
+//     * : 要 --type-check・標準で未定義のグローバル変数が Cannot find name エラーになるため切っておく
+//     */
+//    "no-use-before-declare": true,
+//    /* require の戻り値は import で受け var で受け取らないこと (true) */
+//    "no-var-requires": false,
+//    /* オブジェクトリテラルのキーを文字列にするかしないかの設定を行わない (false) : 場合によるので強制化しない */
+//    "object-literal-key-quotes": [
+//      true,
+//      "as-needed"
+//    ],
+//    /* オブジェクトリテラルのキーをアルファベット順に並べることを強制しない (false) */
+//    "object-literal-sort-keys": false,
+//    /* import の順序指定を行う (true) */
+//    "ordered-imports": false,
+//    /* シングルクォートを使用すること (true・"single") */
+//    "quotemark": [
+//      true,
+//      "single"
+//    ],
+//    /* カンマを最後に付けるかのルールを強制する (true) */
+//    "trailing-comma": false,
+
+    /****************************************************************
+     * for Angular (codelyzer)
+     ****************************************************************/
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -21,69 +105,29 @@
       "app",
       "kebab-case"
     ],
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
-    "interface-name": false,
-    "max-classes-per-file": false,
-    "max-line-length": [
-      true,
-      140
-    ],
-    "member-access": false,
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
-      }
-    ],
-    "no-consecutive-blank-lines": false,
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
-    "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
-    "no-switch-case-fall-through": true,
-    "no-use-before-declare": true,
-    "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
-    ],
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "trailing-comma": false,
+    /*  */
     "no-conflicting-lifecycle": true,
+    /*  */
     "no-host-metadata-property": true,
+    /*  */
     "no-input-rename": true,
+    /*  */
     "no-inputs-metadata-property": true,
+    /*  */
     "no-output-native": true,
+    /*  */
     "no-output-on-prefix": true,
+    /*  */
     "no-output-rename": true,
+    /*  */
     "no-outputs-metadata-property": true,
+    /*  */
     "template-banana-in-box": true,
+    /*  */
     "template-no-negated-async": true,
+    /*  */
     "use-lifecycle-interface": true,
+    /*  */
     "use-pipe-transform-interface": true
   },
   "rulesDirectory": [
