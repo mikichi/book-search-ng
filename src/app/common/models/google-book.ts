@@ -55,7 +55,7 @@ export class GoogleBook {
     categories: string[];
     contentVersion: string;
     description: string;
-    imageLinks: {
+    imageLinks?: {
       smallThumbnail: string;
       thumbnail: string;
     }

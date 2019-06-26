@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from "@angu
 import { GoogleBooksApiService } from "./http/http-services/books/google-books-api.service";
 import { HttpInterceptorService } from "./http/http-interceptor.service";
 import { AppToasterConfig } from "./constracts/app-toastr-config";
+import { BookSearchService } from "./services/book-search.service";
 
 @NgModule({
   declarations: [],
@@ -14,8 +15,7 @@ import { AppToasterConfig } from "./constracts/app-toastr-config";
     HttpClientModule,
     HttpClientXsrfModule,
   ],
-  exports: [
-  ]
+  exports: []
 })
 export class AppCommonModule {
   static forRoot(): ModuleWithProviders {
@@ -29,6 +29,7 @@ export class AppCommonModule {
         },
 
         GoogleBooksApiService,
+        BookSearchService,
       ],
     };
   }

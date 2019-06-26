@@ -12,5 +12,5 @@ export const AppToasterConfig: Partial<GlobalConfig> = {
   progressBar: true,
   progressAnimation: 'increasing',
   enableHtml: true,
-  positionClass: 'toast-top-center',
+  positionClass: 'toast-top-right',
 };
