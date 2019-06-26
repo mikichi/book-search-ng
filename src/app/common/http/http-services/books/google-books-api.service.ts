@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { HttpAbstractService } from "../http-abstract.service";
+import { Observable } from "rxjs";
+import { GoogleBook } from "../../../models/google-book";
+import { map } from "rxjs/operators";
 
 /**
  * @see https://developers.google.com/books/docs/v1/using#query-params
@@ -29,7 +32,7 @@ export class GoogleBooksApiService extends HttpAbstractService {
   /**
    * Googleに登録されている書籍情報から取得
    */
-  private get volumeApi() {
+  private get volumeApi(): string {
     return `${this.getUriBase()}/volumes`;
   }
 
@@ -37,11 +40,14 @@ export class GoogleBooksApiService extends HttpAbstractService {
    * ユーザーの本棚から取得
    * @deprecated 未実装
    */
-  private get bookshelvesApi() {
+  private get bookshelvesApi(): string {
     return `${this.getUriBase()}/volumes`;
   }
 
-  fetchBooks(params: GoogleBooksAPIQueryParams) {
-    return this.http.get(this.volumeApi, {params: this.buildParams(params)});
+  fetchBooks(params: GoogleBooksAPIQueryParams): Observable<GoogleBook[]> {
+    return this.http.get(this.volumeApi, {params: this.buildParams(params)})
+      .pipe(
+        map((res: any) => res.items),
+      );
   }
 }

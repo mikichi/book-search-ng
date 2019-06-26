@@ -1,4 +1,9 @@
-<span>test</span>
-<p>
-  {{query}}
-</p>
+<mat-list>
+  <h3 mat-subheader>検索結果</h3>
+  <mat-list-item *ngFor="let book of (books$ | async)">
+    <img mat-list-avatar class="book-thumbnail" [src]="book.volumeInfo.imageLinks.smallThumbnail">
+    <h4 mat-line>{{book.volumeInfo.title}}</h4>
+    <p mat-line> {{book.volumeInfo.description}} </p>
+  </mat-list-item>
+</mat-list>
+

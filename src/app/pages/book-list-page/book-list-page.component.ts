@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleBooksApiService } from "../../common/http/http-services/books/google-books-api.service";
+import { BehaviorSubject } from "rxjs";
+import { GoogleBook } from "../../common/models/google-book";
 
 @Component({
   selector: 'app-book-list-page',
@@ -11,13 +13,12 @@ export class BookListPageComponent implements OnInit {
   constructor(private bookService: GoogleBooksApiService) {
   }
 
-  query: string;
+  books$: BehaviorSubject<GoogleBook[]> = new BehaviorSubject([]);
 
   ngOnInit() {
     this.bookService.fetchBooks({q: 'ティール組織'})
       .subscribe((res) => {
-        this.query = JSON.stringify(res);
+        this.books$.next(res);
       });
   }
-
 }

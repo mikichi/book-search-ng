@@ -10,7 +10,6 @@ export abstract class HttpAbstractService {
 
   protected constructor() { }
 
-
   protected buildParams(query: any): HttpParams {
     return new HttpParams({ fromObject: query });
   }
