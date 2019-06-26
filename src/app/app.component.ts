@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookSearchService } from "./common/services/book-search.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'book-search-ng';
+
+  constructor(private bookSearch: BookSearchService) {
+  }
+
+
+  onExecuteSearch(text: string) {
+    this.bookSearch.bookSearch$.next(text);
+  }
 }

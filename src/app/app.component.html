@@ -1,11 +1,16 @@
 <mat-toolbar color="primary">
   <span>Book Search</span>
-<!--  <span class="example-spacer"></span>-->
+  <book-search-box (executeSearch)="onExecuteSearch($event)"></book-search-box>
   <div class="tool-button-area">
     <mat-icon class="tool-icon" aria-hidden="false" aria-label="favorite">favorite</mat-icon>
     <mat-icon class="tool-icon" aria-hidden="false" aria-label="settings">settings</mat-icon>
   </div>
 </mat-toolbar>
+
+<div class="app-main">
+  <router-outlet></router-outlet>
+</div>
+
 
 <!--&lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;-->
 <!--<div style="text-align:center">-->
@@ -27,4 +32,3 @@
 <!--  </li>-->
 <!--</ul>-->
 
-<router-outlet></router-outlet>

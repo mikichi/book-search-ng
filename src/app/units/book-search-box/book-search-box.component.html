@@ -1,0 +1,8 @@
+<div class="book-search-form">
+    <div class="input-container">
+        <input matInput placeholder="キーワードを入力"
+               [formControl]="searchBoxFormControl"
+               (keyup)="onKeyUp($event)">
+    </div>
+</div>
+
