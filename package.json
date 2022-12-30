@@ -44,7 +44,7 @@
     "@types/lodash": "^4.14.134",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
-    "git-cz": "^3.0.1",
+    "git-cz": "^3.3.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
